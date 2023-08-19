@@ -14,12 +14,21 @@ print('original string:', input_str)
 #list of possible separators which should be followed with upper case
 list_of_separators = {'.', '. ', '?', '? ', '!', '! ', "\n\t", "\n\t "}
 normalized_str = input_str.capitalize()
+new_sentence = ''
 for sep in list_of_separators:
     normalized_str_list = normalized_str.split(sep)
     for index, s_str in enumerate(normalized_str_list):
         normalized_str_list[index] = s_str[0].upper() + s_str[1:]
+        if sep == '.':
+            str_words = s_str.split(' ')
+            if index == 0:
+                new_sentence = str(str_words[len(str_words) - 1]).capitalize()
+            else:
+                new_sentence += ' ' + str_words[len(str_words) - 1]
     normalized_str = sep.join(normalized_str_list)
+normalized_str += new_sentence.replace('\n', '').rstrip() + '.'
 print('normalized string:', normalized_str)
+
 # correcting misspelling of "iz"
 pattern = re.compile(r"(?:^|[^a-z“])iz(?![a-z“])", re.I)
 normalized_str_list = normalized_str.split(' ')
