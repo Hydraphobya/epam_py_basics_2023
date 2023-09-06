@@ -21,37 +21,43 @@ def decorator_factory():
 
 
 @decorator_factory()
-def get_number_of_whitespaces(input_str):
-    str_without_whitespaces = re.sub('[ \n\t]', '', input_str)
-    num_of_whitespaces: int = len(input_str) - len(str_without_whitespaces)
+def get_number_of_whitespaces(l_input_str):
+    str_without_whitespaces = re.sub('[ \n\t]', '', l_input_str)
+    num_of_whitespaces: int = len(l_input_str) - len(str_without_whitespaces)
     return num_of_whitespaces
 
 
 @decorator_factory()
-def correct_is_misspelling(input_str):
+def correct_is_misspelling(l_input_str):
     pattern = re.compile(r"(?:^|[^a-z“])iz(?![a-z“])", re.I)
-    str_list = input_str.split(' ')
+    str_list = l_input_str.split(' ')
     for index, s_str in enumerate(str_list):
         match = pattern.search(s_str)
         if match:
             start, end = match.span()
-            str_list[index] = s_str[:(start + 1)] + 's' + s_str[(start + 2):]
+            str_list[index] = (
+                    s_str[:(start + 1)]
+                    + 's'
+                    + s_str[(start + 2):]
+            )
     str_without_misspelling = ' '.join(str_list)
     return str_without_misspelling
 
 
-def capitalize_first_word(input_str):
-    none_space_index = re.search('[^ ]', input_str).start()
-    result_str = (input_str[:none_space_index]
-                  + input_str[none_space_index].upper()
-                  + input_str[(none_space_index + 1):])
+def capitalize_first_word(l_input_str):
+    none_space_index = re.search('[^ ]', l_input_str).start()
+    result_str = (
+            l_input_str[:none_space_index]
+            + l_input_str[none_space_index].upper()
+            + l_input_str[(none_space_index + 1):]
+    )
     return result_str
 
 
 @decorator_factory()
-def normalize_str(input_text):
+def normalize_str(l_input_str):
     list_of_separators = {'.', '?', '!', "\n\t"}
-    l_normalized_str = input_text.capitalize()
+    l_normalized_str = l_input_str.capitalize()
     for sep in list_of_separators:
         normalized_str_list = l_normalized_str.split(sep)
         for index, s_str in enumerate(normalized_str_list):
@@ -60,15 +66,15 @@ def normalize_str(input_text):
     return l_normalized_str
 
 
-def get_last_word(input_str):
-    str_words = input_str.rstrip().split(' ')
+def get_last_word(l_input_str):
+    str_words = l_input_str.rstrip().split(' ')
     last_word = str_words[len(str_words) - 1]
     return last_word
 
 
 @decorator_factory()
-def build_sentence_from_last_words(input_str):
-    list_str = input_str.split('.')
+def build_sentence_from_last_words(l_input_str):
+    list_str = l_input_str.split('.')
     result_sentence = ''
     for index, value_str in enumerate(list_str):
         result_sentence += ' ' + get_last_word(value_str)
@@ -92,5 +98,8 @@ fixed_str = correct_is_misspelling(input_str)
 print(f'String with corrected misspelling: "{fixed_str}".')
 normalized_str = normalize_str(fixed_str)
 print(f'Normalized string: "{normalized_str}"')
+whitespaces_number2 = get_number_of_whitespaces(normalized_str)
+print(f'Number of whitespaces in normalized string. Should be same as in the input string: {whitespaces_number2}.')
 additional_sentence = build_sentence_from_last_words(normalized_str)
 print(f'Last words sentence: "{additional_sentence}"')
+
