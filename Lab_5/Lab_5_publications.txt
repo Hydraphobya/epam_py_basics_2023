@@ -1,0 +1,38 @@
+City: Prague; 
+ Date: 2023-09-18 22:21:44.098266; 
+ News: It is raining now;------------------ NEWS------------------
+ City: Prague; 
+ Date: 2023-09-20 11:28:00.614333; 
+ News: Something has happened!;------------------ NEWS------------------
+ City: Minsk; 
+ Date: 2023-09-20 11:32:43.413849; 
+ News: Testing is in process! Be patient, please;------------------ ADVERTISEMENT------------------
+ Text: Move out sale! Only one day! Save date to your calendar! October 23, Prague Tower, 6th floor!; 
+ Expiration date: 2023-10-23 00:00:00; 
+ Days left: 32;------------------ TIP OF THE DAY------------------
+ Date: 2023-09-20 11:33:19.061036; 
+ Text: Try not to do mistakes ; 
+ Rating: 0; ------------------ NEWS------------------
+ City: Copenhagen; 
+ Date: 2023-09-20 11:34:51.951357; 
+ News: It is the last time, I promise!;
+------------------ ADVERTISEMENT------------------
+ Text: Big party for everyone! Register to Epan New Year 2024 party!; 
+ Expiration date: 2024-01-01 00:00:00; 
+ Days left: 102;
+------------------ TIP OF THE DAY------------------
+ Date: 2023-09-20 11:35:54.647093; 
+ Text: Do not waste your time; 
+ Rating: 1; 
+------------------ NEWS------------------
+ City: Prague; 
+ Date: 2023-09-20; 
+ News: One more test. No promises this time!;
+------------------ ADVERTISEMENT------------------
+ Text: Brains for sale! Almost no used!; 
+ Expiration date: 2024-03-12; 
+ Days left: 173;
+------------------ TIP OF THE DAY------------------
+ Date: 2023-09-20; 
+ Text: Trust nobody! Event yourself!; 
+ Rating: 100500; 

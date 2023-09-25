@@ -1,0 +1,18 @@
+{
+    "publications": [
+        {
+            "type": "News" or "Ad" or "Tip", -- mandatory
+            "text": "main text", -- mandatory
+            "city": "Prague", -- mandatory for News
+            "rating": "0,5", -- mandatory for Tip
+            "expiration_date": "YYYY-MM-DD" -- mandatory for ad
+        },
+        {
+            "type": "News" or "Ad" or "Tip", -- mandatory
+            "text": "main text", -- mandatory
+            "city": "Prague", -- mandatory for News
+            "rating": "0,5", -- mandatory for Tip
+            "expiration_date": "YYYY-MM-DD" -- mandatory for ad
+        }
+    ]
+}
