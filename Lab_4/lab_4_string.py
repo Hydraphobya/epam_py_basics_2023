@@ -82,7 +82,8 @@ def build_sentence_from_last_words(l_input_str):
     return result_sentence
 
 
-input_str = """homEwork:
+
+INPUT_STR = """homEwork:
 	tHis iz your homeWork, copy these Text to variable. 
 
 	You NEED TO normalize it fROM letter CASEs point oF View. also, create one MORE senTENCE witH LAST WoRDS of each existING SENtence and add it to the END OF this Paragraph.
@@ -92,14 +93,16 @@ input_str = """homEwork:
 	last iz TO calculate nuMber OF Whitespace characteRS in this Text. caREFULL, not only Spaces, but ALL whitespaces. I got 87.
 """
 
-whitespaces_number = get_number_of_whitespaces(input_str)
-print(f'Number of whitespaces: {whitespaces_number}.')
-fixed_str = correct_is_misspelling(input_str)
-print(f'String with corrected misspelling: "{fixed_str}".')
-normalized_str = normalize_str(fixed_str)
-print(f'Normalized string: "{normalized_str}"')
-whitespaces_number2 = get_number_of_whitespaces(normalized_str)
-print(f'Number of whitespaces in normalized string. Should be same as in the input string: {whitespaces_number2}.')
-additional_sentence = build_sentence_from_last_words(normalized_str)
-print(f'Last words sentence: "{additional_sentence}"')
+
+if __name__ == '__main__':
+    whitespaces_number = get_number_of_whitespaces(INPUT_STR)
+    print(f'Number of whitespaces: {whitespaces_number}.')
+    fixed_str = correct_is_misspelling(INPUT_STR)
+    print(f'String with corrected misspelling: "{fixed_str}".')
+    normalized_str = normalize_str(fixed_str)
+    print(f'Normalized string: "{normalized_str}"')
+    whitespaces_number2 = get_number_of_whitespaces(normalized_str)
+    print(f'Number of whitespaces in normalized string. Should be same as in the input string: {whitespaces_number2}.')
+    additional_sentence = build_sentence_from_last_words(normalized_str)
+    print(f'Last words sentence: "{additional_sentence}"')
 

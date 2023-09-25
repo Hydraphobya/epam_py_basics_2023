@@ -17,8 +17,6 @@ You need to implement:
 Each new record should be added to the end of file. Commit file in git for review.
 """
 from datetime import datetime
-
-from decimal import Decimal
 import decimal
 
 FILE_NAME = "Lab_5_publications.txt"
@@ -47,7 +45,7 @@ class News(BasicPublication):
         self._city = def_city
         self._publish_date = datetime.now()
 
-    def publish(self):
+    def publish(self) -> None:
         self._write_to_file(self._CONTENT.format(
             city=self._city,
             date=self._publish_date.strftime(DATE_FORMAT),
@@ -68,7 +66,7 @@ class PrivateAd(BasicPublication):
         self._expiration_date = expiration_date
         self._days_left = 0
 
-    def publish(self):
+    def publish(self) -> None:
         days_left = (self._expiration_date - datetime.now()).days
         if days_left < 0:
             days_left = 0
@@ -87,12 +85,12 @@ class TipOfTheDay(BasicPublication):
                 + "\n Rating: {rating} "
                 + "\n")
 
-    def __init__(self, def_text: str, def_rating: Decimal) -> None:
+    def __init__(self, def_text: str, def_rating: decimal.Decimal) -> None:
         super().__init__(def_text)
         self._rating = def_rating
         self._publish_date = datetime.now()
 
-    def publish(self):
+    def publish(self) -> None:
         self._write_to_file(self._CONTENT.format(
             date=self._publish_date.strftime(DATE_FORMAT),
             text=self._text,
@@ -101,38 +99,39 @@ class TipOfTheDay(BasicPublication):
         )
 
 
-selection_text = ("Hello Dear User. Please, chose one from the next options:"
-                  + "\n Enter 1 to load News; "
-                  + "\n Enter 2 to load Ad; "
-                  + "\n Enter 3 to load Tip; "
-                  + "\n Enter q to quit. \n"
-                  )
+if __name__ == '__main__':
+    selection_text = ("Hello Dear User. Please, chose one from the next options:"
+                      + "\n Enter 1 to load News; "
+                      + "\n Enter 2 to load Ad; "
+                      + "\n Enter 3 to load Tip; "
+                      + "\n Enter q to quit. \n"
+                      )
 
-input_text = ""
-while input_text.lower() != "q":
-    input_text = input(selection_text)
-    if input_text == "1":
-        news_text = input("Text: ")
-        news_city = input("City: ")
-        news = News(news_text, news_city)
-        news.publish()
-    elif input_text == "2":
-        ad_text = input("Text: ")
-        ad_expiration_dt_str = input("Expiration date (YYYY-MM-DD): ")
-        try:
-            ad_expiration_dt = datetime.strptime(ad_expiration_dt_str, DATE_FORMAT)
-        except ValueError:
-            print("Invalid date.")
-            continue
-        ad = PrivateAd(ad_text, ad_expiration_dt)
-        ad.publish()
-    elif input_text == "3":
-        tip_text = input("Text: ")
-        tip_rating = 0
-        try:
-            tip_rating = Decimal(input("Rating: "))
-        except decimal.InvalidOperation:
-            print("Invalid rating.")
-            continue
-        tip = TipOfTheDay(tip_text, tip_rating)
-        tip.publish()
+    input_text = ""
+    while input_text.lower() != "q":
+        input_text = input(selection_text)
+        if input_text == "1":
+            news_text = input("Text: ")
+            news_city = input("City: ")
+            news = News(news_text, news_city)
+            news.publish()
+        elif input_text == "2":
+            ad_text = input("Text: ")
+            ad_expiration_dt_str = input("Expiration date (YYYY-MM-DD): ")
+            try:
+                ad_expiration_dt = datetime.strptime(ad_expiration_dt_str, DATE_FORMAT)
+            except ValueError:
+                print("Invalid date.")
+                continue
+            ad = PrivateAd(ad_text, ad_expiration_dt)
+            ad.publish()
+        elif input_text == "3":
+            tip_text = input("Text: ")
+            tip_rating = 0
+            try:
+                tip_rating = decimal.Decimal(input("Rating: "))
+            except decimal.InvalidOperation:
+                print("Invalid rating.")
+                continue
+            tip = TipOfTheDay(tip_text, tip_rating)
+            tip.publish()
