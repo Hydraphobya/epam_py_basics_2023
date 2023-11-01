@@ -36,3 +36,15 @@ City: Prague;
  Date: 2023-09-20; 
  Text: Trust nobody! Event yourself!; 
  Rating: 100500; 
+------------------ NEWS------------------
+ City: New Orleans 
+ Date: 2023-10-28 
+ News: Fake news. 
+------------------ ADVERTISEMENT------------------
+ Text: If you like what you are reading subscribe to our top stories.To subscribe send 'i am in' to boredpanda@pands.Com 
+ Expiration date: 2024-01-01 
+ Days left: 63
+------------------ TIP OF THE DAY------------------
+ Date: 2023-10-29 
+ Text: No matter how slow you progress or how many mistakes you make, you are still way ahead of everyone who isn't trying 
+ Rating: 3.5 
