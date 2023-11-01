@@ -1,0 +1,14 @@
+<publications>
+        <publication type="Ad">
+            <text> Sample text for AD for XML lab</text>
+            <expiration_date>2025-01-01</expiration_date>
+        </publication>
+        <publication type="Tip">
+            <text> Sample text for news for XML lab</text>
+            <rating>0.05</rating>
+        </publication>
+        <publication type="News">
+            <text> Sample text for news for XML lab</text>
+            <city>Prague</city>
+        </publication>
+</publications>
