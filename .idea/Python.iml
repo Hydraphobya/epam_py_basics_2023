@@ -11,7 +11,7 @@
     <option name="namespacePackageFolders">
       <list>
         <option value="$MODULE_DIR$/Lab_4" />
-        <option value="$MODULE_DIR$/Lab_5" />
+        <option value="$MODULE_DIR$/util" />
       </list>
     </option>
   </component>

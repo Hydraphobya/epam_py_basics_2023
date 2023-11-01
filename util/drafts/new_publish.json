@@ -1,0 +1,14 @@
+{
+    "publications": [
+        {
+            "type": "Ad",
+            "text": "If you like what you are reading subscribe to our top stories.To subscribe send 'I am in' to boredpanda@pands.com",
+            "expiration_date": "2024-01-01"
+        },
+        {
+            "type": "Tip",
+            "text": "No matter how slow you progress or how many mistakes you make, you are still way ahead of everyone who isn't trying",
+            "rating": "3.5"
+        }
+    ]
+}
