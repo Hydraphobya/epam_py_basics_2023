@@ -237,7 +237,7 @@ fabric.properties
 .gitignore.bak
 
 #Pyhton project related restriction
-.Lab_5_publications.txt
-.Lab_5_publications.*.csv
+Lab_5_publications.txt
+Lab_5_publications.*.csv
 
-.util/Databases/
+util/Databases/
