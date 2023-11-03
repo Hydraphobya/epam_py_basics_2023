@@ -2,6 +2,7 @@ from util.PubTypes import BasicPublication as BasicPub
 from datetime import datetime
 import decimal
 from typing import TypeVar, Type
+import pyodbc
 
 T = TypeVar('T', bound='TipOfTheDay')
 
@@ -36,3 +37,7 @@ class TipOfTheDay(BasicPub.BasicPublication):
             rating=self._rating
             )
         )
+
+    def db_publish(self, db_cursor: pyodbc.Cursor) -> None:
+        insert_str = f"insert into Advertisement values('{self._text}', {self._rating}, {self._publish_date})"
+        db_cursor.execute(insert_str)

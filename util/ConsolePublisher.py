@@ -1,5 +1,6 @@
 import decimal
 from .PubTypes import News, PrivateAd, TipOfTheDay
+import pyodbc
 
 
 class ConsolePublisher:
@@ -17,14 +18,17 @@ class ConsolePublisher:
         return selection_text
 
     @staticmethod
-    def publish_news() -> None:
+    def publish_news(db_cursor: pyodbc.Cursor = None) -> None:
         text = input("Text: ")
         city = input("City: ")
         news = News.News(text, city)
-        news.publish()
+        if db_cursor:
+            news.db_publish(db_cursor)
+        else:
+            news.publish()
 
     @staticmethod
-    def publish_private_ad() -> None:
+    def publish_private_ad(db_cursor: pyodbc.Cursor = None) -> None:
         ad_text = input("Text: ")
         ad_expiration_dt_str = input("Expiration date (YYYY-MM-DD): ")
         try:
@@ -33,10 +37,13 @@ class ConsolePublisher:
             print("Failed to publish private ad. Please check the date format it should be - YYYY-MM-DD")
             print(publish_private_ad_error)
         else:
-            ad.publish()
+            if db_cursor:
+                ad.db_publish(db_cursor)
+            else:
+                ad.publish()
 
     @staticmethod
-    def publish_tip() -> None:
+    def publish_tip(db_cursor: pyodbc.Cursor = None) -> None:
         text = input("Text: ")
         rating_str = input("Rating: ")
         try:
@@ -45,4 +52,7 @@ class ConsolePublisher:
             print("Failed to publish tip of the day. Please enter correct rating as decimal")
             print(publish_tip_error)
         else:
-            tip.publish()
+            if db_cursor:
+                tip.db_publish(db_cursor)
+            else:
+                tip.publish()
