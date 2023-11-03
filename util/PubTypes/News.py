@@ -1,5 +1,6 @@
 from util.PubTypes import BasicPublication as BasicPub
 from datetime import datetime
+import pyodbc
 
 
 class News(BasicPub.BasicPublication):
@@ -22,7 +23,13 @@ class News(BasicPub.BasicPublication):
             )
         )
 
+    def db_publish(self, db_cursor: pyodbc.Cursor) -> None:
+        insert_str = (f"insert into News values('{self._text}', "
+                      f"'{self._city}', "
+                      f"'{self._publish_date.strftime(BasicPub.DATE_FORMAT)}' )"
+                      )
+        db_cursor.execute(insert_str)
+
 
 if __name__ == "__main__":
-        n = News("Fake news. ", "New Orleans")
-        n.publish()
+    News("Fake news. ", "New Orleans")

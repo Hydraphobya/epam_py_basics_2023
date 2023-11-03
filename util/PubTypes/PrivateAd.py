@@ -1,6 +1,7 @@
 from util.PubTypes import BasicPublication as BasicPub
 from datetime import datetime
 from typing import TypeVar, Type
+import pyodbc
 
 
 T = TypeVar('T', bound='PrivateAd')
@@ -39,3 +40,7 @@ class PrivateAd(BasicPub.BasicPublication):
             days_left=days_left
             )
         )
+
+    def db_publish(self, db_cursor: pyodbc.Cursor) -> None:
+        insert_str = f"insert into Advertisement values('{self._text}', '{self._expiration_date}')"
+        db_cursor.execute(insert_str)
