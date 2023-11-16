@@ -1,8 +1,8 @@
 import pyodbc
 CONNECTION_STR = 'DRIVER={SQLite3 ODBC Driver};'\
                  'Direct=True;'\
-                 'Database=util/PubTypes.db;'\
-                 'String Types = Unicode'
+                 'Database=util/Databases/PubTypes.db;'\
+                 'String Types = Unicode;'
 
 
 class DBConnection:
@@ -14,3 +14,13 @@ class DBConnection:
 
     def get_cursor(self) -> pyodbc.Cursor:
         return self._cursor
+
+
+if __name__ == "__main__":
+    conn_str = 'DRIVER={SQLite3 ODBC Driver};' \
+                     'Direct=True;' \
+                     'Database=Databases/PubTypes.db;' \
+                     'String Types = Unicode;'
+    con = DBConnection(conn_str)
+
+    print(type(con))
