@@ -12,11 +12,10 @@ class DBConnection:
             with connection.cursor() as cursor:
                 self._cursor = cursor
                 cursor.execute('create table if not exists  Cities(city_name text, country_code text, '
-                               'postal_code text, '
                                'longitude real, '
                                'latitude real, '
                                'created_datetime, '
-                               'unique(country_code, city_name, postal_code))')
+                               'unique(country_code, city_name))')
 
     def get_cursor(self) -> pyodbc.Cursor:
         return self._cursor

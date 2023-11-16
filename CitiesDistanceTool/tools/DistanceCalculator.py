@@ -24,8 +24,8 @@ def calculate_distance(city_start: City, city_end: City) -> decimal:
                    math.sin(d_long / 2) * math.sin(d_long / 2)
                    )
     calc_helper2 = 2 * math.atan2(math.sqrt(calc_helper), math.sqrt(1 - calc_helper))
-    distance = earth_r * calc_helper2
-    return distance
+    res_distance = earth_r * calc_helper2
+    return res_distance
 
 
 def deg2rad(deg: decimal) -> decimal:
