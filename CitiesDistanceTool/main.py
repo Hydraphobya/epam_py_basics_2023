@@ -2,6 +2,19 @@ import tools.City as City
 import decimal
 import tools.DistanceCalculator as dc
 
+# Tip: Group imports splitting them between general packages used like so 
+#
+# import decimal
+# 
+# import tools.City as City
+# import tools.DistanceCalculator as dc
+
+# Tip: normally the package 'tools' is called 'src' (source code) or 'utils'. 
+# 'src' normally used in big projects. main.py and scripts/ reside in root level, then src/ contains all
+# the common packages. This way it is not painful to work with imports in python
+
+# Nice: Good use of functional programming to make the code cleaner and reusable.
+# Good use of decorators. Good error handling
 def define_coordinate(coord_type: str) -> decimal:
     coord_str = input(f'Please, enter city {coord_type}: ')
     try:

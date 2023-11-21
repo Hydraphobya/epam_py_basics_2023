@@ -3,13 +3,22 @@ import decimal
 import math
 from geopy import distance
 
+# Tip: reorder imports as said in main.py
 
+# import decimal
+# import math
+# from geopy import distance
+
+# from CitiesDistanceTool.tools.City import City
+
+# Nice code structure
+# Tip: add doc to tools function
 def calculate_geopy_distance(city_start: City, city_end: City) -> decimal:
     st_point = (city_start.get_latitude(), city_start.get_longitude())
     end_point = (city_end.get_latitude(), city_end.get_longitude())
     return distance.distance(st_point, end_point).km
 
-
+# Tip: add doc to tools function
 def calculate_distance(city_start: City, city_end: City) -> decimal:
     earth_r = 6371 # Radius of the earth in km
     st_lat = city_start.get_latitude()
@@ -27,6 +36,7 @@ def calculate_distance(city_start: City, city_end: City) -> decimal:
     res_distance = earth_r * calc_helper2
     return res_distance
 
-
+# Tip: this is something you would probably want to make private as it looks like a helper
+# _deg2rad
 def deg2rad(deg: decimal) -> decimal:
     return decimal.Decimal(deg) * decimal.Decimal(math.pi / 180)

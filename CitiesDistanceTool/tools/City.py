@@ -2,7 +2,8 @@ from CitiesDistanceTool.tools.Connections.DBConnection import DBConnection
 from datetime import datetime
 import decimal
 
-
+# Tip: Class Name sould be defined as ThisIsAClass. However, python file should be this_is_a_class.py, same as modules
+# Nice: great use of decorators, private/public, staticmethod, etc.
 class City:
     def __init__(self, city_name: str,
                  country_code: str,
